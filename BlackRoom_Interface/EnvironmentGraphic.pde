@@ -20,6 +20,7 @@ void drawEnvironmentGraphic(){
   environmentPG.pushStyle();
   environmentPG.stroke(200,200,0);
   
+  environmentPG.text(nf(face_depth,0,2) + "m", face_depth*100 /2, 50);
   for(int i =0 ; i< face_depth*100 ; i+=20){
     environmentPG.pushMatrix();
     environmentPG.translate(i,0,0);
@@ -31,8 +32,9 @@ void drawEnvironmentGraphic(){
   //draw head
   if(face_detected){
     environmentPG.translate(face_depth*100,0,0);
-    environmentPG.rotateY(millis()/10000.0 * TWO_PI);
+    //environmentPG.rotateY(millis()/10000.0 * TWO_PI);
     
+    environmentPG.rotateY(radians(map(face_direction_yaw,0.2,0.8,-60,60)));
     environmentPG.pushStyle();
     
     environmentPG.fill(255,255,255,50);
@@ -41,12 +43,15 @@ void drawEnvironmentGraphic(){
     environmentPG.sphere(10);
     
     environmentPG.scale(1,0.5,1);
+    //X
     environmentPG.stroke(255,0,0);
-    environmentPG.line(0,-20,0,-20,-20,0);
+    environmentPG.line(0,-20,0,0,-20,20);
+    //Y
     environmentPG.stroke(0,255,0);
     environmentPG.line(0,-20,0,0,-40,0);
+    //Z
     environmentPG.stroke(0,0,255);
-    environmentPG.line(0,-20,0,0,-20,20);
+    environmentPG.line(0,-20,0,-20,-20,0);
     environmentPG.popStyle();
   }
   

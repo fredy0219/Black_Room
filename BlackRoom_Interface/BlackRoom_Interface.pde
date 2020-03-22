@@ -14,7 +14,7 @@ PGraphics environmentPG;
 boolean face_detected = true;
 int face_position_x = 0;
 int face_position_y = 0;
-float face_depth = 3;
+float face_depth = 0;
 float face_direction_yaw = 0;
 float face_direction_pitch = 0;
 float face_direction_roll = 0;

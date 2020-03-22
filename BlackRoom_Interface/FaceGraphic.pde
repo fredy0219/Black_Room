@@ -6,7 +6,9 @@ void drawFaceGraphic(){
   facePG.translate(125,120,-20);
   
   facePG.pushMatrix();
-  facePG.rotateY(millis()/10000.0 * TWO_PI);
+  //facePG.rotateY(millis()/10000.0 * TWO_PI);
+  
+  facePG.rotateY(radians(map(face_direction_yaw,0.2,0.8,-60,60)));
   facePG.pushStyle();
   //facePG.scale(1,2,1);
   facePG.box(5);
@@ -19,13 +21,13 @@ void drawFaceGraphic(){
   //facePG.rotateY(radians(data));
   //X
   facePG.stroke(255,0,0);
-  facePG.line(0, 0, 0, 0, 0, 70);
+  facePG.line(0, 0, 0, 70, 0, 0);
   //Y
   facePG.stroke(0,255,0);
   facePG.line(0, 0, 0, 0, -70, 0);
   //Z
   facePG.stroke(0,0,255);
-  facePG.line(0, 0, 0, 70, 0, 0);
+  facePG.line(0, 0, 0, 0, 0, 70);
 
   facePG.popMatrix();
   facePG.endDraw();
