@@ -32,7 +32,6 @@ void drawEnvironmentGraphic(){
   //draw head
   if(face_detected){
     environmentPG.translate(face_depth*100,0,0);
-    //environmentPG.rotateY(millis()/10000.0 * TWO_PI);
     
     environmentPG.rotateY(radians(map(face_direction_yaw,0.2,0.8,-60,60)));
     environmentPG.pushStyle();
@@ -54,7 +53,6 @@ void drawEnvironmentGraphic(){
     environmentPG.line(0,-20,0,-20,-20,0);
     environmentPG.popStyle();
   }
-  
   
   environmentPG.popMatrix();
   
